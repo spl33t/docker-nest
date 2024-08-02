@@ -11,4 +11,4 @@ async function bootstrap() {
 bootstrap().then(async () => {
   const allUsers = await prisma.user.findMany();
   console.log(allUsers);
-});
+})
