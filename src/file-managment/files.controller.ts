@@ -4,12 +4,11 @@ import { GetOneFileByIdDto } from './dto/get-one-file-by-id.dto';
 import { GetAllFilesDto } from './dto/get-all-files.dto';
 import { DeleteOneFileByIdDto } from './dto/delete-one-file-by-id.dto';
 import { CreateFileDto } from './dto/create-files.dto';
-import { TypedBody, TypedFormData, TypedQuery, TypedRoute } from '@nestia/core';
 
 @Controller('files')
 export class FilesController {
   constructor(private filesService: FilesService) {}
-
+/* 
   @TypedRoute.Post()
   async upload(@TypedFormData.Body() dto: CreateFileDto) {
     return await this.filesService.createFile(dto);
@@ -35,5 +34,5 @@ export class FilesController {
 
   async deleteManyFilesByRelationId(@TypedQuery() dto: { id: string }) {
     return await this.filesService.deleteManyFilesByRelationId(dto);
-  }
+  } */
 }
