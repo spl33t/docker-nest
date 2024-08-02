@@ -9,7 +9,7 @@ import { FormDataRequest } from 'nestjs-form-data';
 export class FilesController {
   constructor(private filesService: FilesService) {}
 
-  @Post()
+/*   @Post()
   @FormDataRequest()
   async upload(@Body() dto: CreateFileDto) {
     return await this.filesService.createFile(dto);
@@ -24,5 +24,5 @@ export class FilesController {
   @Delete()
   async deleteOneById(@Query() dto: DeleteOneFileByIdDto) {
     return await this.filesService.deleteFile(dto);
-  }
+  } */
 }
