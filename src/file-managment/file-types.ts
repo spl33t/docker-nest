@@ -51,14 +51,14 @@ export function defineFileTypes<T extends Partial<Record<any, Record<string, Fil
 
     Object.keys(config).forEach(modelName => {
         const model = { modelName, fileTypes: {} } as Record<string, any>
-        reslut[modelName] = model
+        reslut[modelName as any] = model as any
 
         Object.keys(config[modelName]).forEach(fileTypeName => {
             reslut[modelName]["fileTypes"][fileTypeName] = { ...config[modelName][fileTypeName], fileTypeName: `${modelName}_${fileTypeName}` }
         })
 
     })
-    return reslut as FileTypesInstance<T>
+    return reslut as unknown as FileTypesInstance<T>
 }
 
 
