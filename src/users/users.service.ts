@@ -9,10 +9,10 @@ export class UsersService implements OnModuleInit {
 
 
     async onModuleInit() {
-        const rootExist = await this.user({ login: "ROOT1337" })
+    /*     const rootExist = await this.user({ login: "ROOT1337" })
         if (!rootExist) {
             await this.createUser({ login: "ROOT1337", password: "ROOT1337" })
-        }
+        } */
 
     }
 

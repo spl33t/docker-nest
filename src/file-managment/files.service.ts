@@ -8,6 +8,7 @@ import { DeleteOneFileByIdDto } from './dto/delete-one-file-by-id.dto';
 import { BadRequestException } from '@nestjs/common/exceptions';
 import { CreateFileDto, } from './dto/create-files.dto';
 import { PrismaService } from '../database/prisma.service';
+import 'dotenv/config'
 
 @Injectable()
 export class FilesService {
