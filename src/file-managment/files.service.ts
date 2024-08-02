@@ -74,7 +74,7 @@ export class FilesService {
         await this.deleteManyFileById({ ids: existFiles.map((s) => s.id) });
       }
 
-      let uploadedFile: S3.ManagedUpload.SendData;
+      let uploadedFile: AWS.S3.ManagedUpload.SendData;
 
       try {
         uploadedFile = await this.s3Stream
