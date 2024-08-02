@@ -15,7 +15,7 @@ export class FilesService {
   constructor(
     private readonly prismaService: PrismaService,
   ) {}
-  private bucketName = process.env.S3_BUCKET_NAME || ""
+ /*  private bucketName = process.env.S3_BUCKET_NAME || ""
   private s3ProviderEndpoint = new Endpoint(process.env.S3_ENDPOINT || "");
 
   private s3Stream = new S3({
@@ -209,5 +209,5 @@ export class FilesService {
       fileExtension: file.extension,
     });
     return `${this.s3ProviderEndpoint.href}${this.bucketName}/${key}`;
-  }
+  } */
 }
