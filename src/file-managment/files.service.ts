@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-//import  AWS from 'aws-sdk';
+import  AWS from 'aws-sdk';
 import * as uuid from 'uuid';
 import { File as FilePrisma, Prisma } from '@prisma/client';
 import { GetOneFileByIdDto } from './dto/get-one-file-by-id.dto';
@@ -16,9 +16,15 @@ export class FilesService {
     private readonly prismaService: PrismaService,
   ) {}
   private bucketName = process.env.S3_BUCKET_NAME || ""
-  private s3ProviderEndpoint = "" as any
+  private s3ProviderEndpoint = new AWS.Endpoint(process.env.S3_ENDPOINT || "");
 
-  private s3Stream = "" as any
+  private s3Stream = new AWS.S3({
+    accessKeyId: process.env.S3_ACCESS_KEY_ID,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+    endpoint: this.s3ProviderEndpoint,
+    s3ForcePathStyle: true,
+    signatureVersion: 'v4',
+  });
 
   async getAll(dto: GetAllFilesDto) {
     const files = await this.prismaService.file.findMany();
@@ -68,7 +74,7 @@ export class FilesService {
         await this.deleteManyFileById({ ids: existFiles.map((s) => s.id) });
       }
 
-      let uploadedFile: any
+      let uploadedFile: AWS.S3.ManagedUpload.SendData;
 
       try {
         uploadedFile = await this.s3Stream
