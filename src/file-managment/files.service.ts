@@ -6,7 +6,7 @@ import { GetOneFileByIdDto } from './dto/get-one-file-by-id.dto';
 import { GetAllFilesDto } from './dto/get-all-files.dto';
 import { DeleteOneFileByIdDto } from './dto/delete-one-file-by-id.dto';
 import { fileTypesConfig, getFileType } from './file-types';
-import { BadRequestException } from '@nestjs/common/exceptions';
+import { BadRequestException } from '@nestjs/common';
 import { CreateFileDto, } from './dto/create-files.dto';
 import { PrismaService } from '../database/prisma.service';
 
