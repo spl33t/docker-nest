@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import  AWS from 'aws-sdk';
+import AWS from 'aws-sdk';
 import * as uuid from 'uuid';
 import { File as FilePrisma, Prisma } from '@prisma/client';
 import { GetOneFileByIdDto } from './dto/get-one-file-by-id.dto';
