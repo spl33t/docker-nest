@@ -1,6 +1,7 @@
-
+import { FileTypes} from "../file-types"
+ 
 export type CreateFileDto = {
-    type: any,
+    type: FileTypes
     relationId: string
     files: File[]
 }
