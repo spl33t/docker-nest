@@ -6,5 +6,4 @@ COPY . .
 EXPOSE 8000
 RUN npm i
 RUN npx prisma generate
-RUN npx prisma db push --force-reset
 RUN npm run build
