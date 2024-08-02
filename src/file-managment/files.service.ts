@@ -1,11 +1,11 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-//import { S3, Endpoint } from 'aws-sdk';
-//import * as uuid from 'uuid';
-//import { File as FilePrisma, Prisma } from '@prisma/client';
-//import { GetOneFileByIdDto } from './dto/get-one-file-by-id.dto';
-//import { GetAllFilesDto } from './dto/get-all-files.dto';
-//import { DeleteOneFileByIdDto } from './dto/delete-one-file-by-id.dto';
-//import { fileTypesConfig, getFileType } from './file-types';
+import * as AWS from 'aws-sdk';
+import * as uuid from 'uuid';
+import { File as FilePrisma, Prisma } from '@prisma/client';
+import { GetOneFileByIdDto } from './dto/get-one-file-by-id.dto';
+import { GetAllFilesDto } from './dto/get-all-files.dto';
+import { DeleteOneFileByIdDto } from './dto/delete-one-file-by-id.dto';
+import { fileTypesConfig, getFileType } from './file-types';
 import { BadRequestException } from '@nestjs/common';
 import { CreateFileDto, } from './dto/create-files.dto';
 import { PrismaService } from '../database/prisma.service';
@@ -15,10 +15,10 @@ export class FilesService {
   constructor(
     private readonly prismaService: PrismaService,
   ) {}
- /*  private bucketName = process.env.S3_BUCKET_NAME || ""
-  private s3ProviderEndpoint = new Endpoint(process.env.S3_ENDPOINT || "");
+  private bucketName = process.env.S3_BUCKET_NAME || ""
+  private s3ProviderEndpoint = new AWS.Endpoint(process.env.S3_ENDPOINT || "");
 
-  private s3Stream = new S3({
+  private s3Stream = new AWS.S3({
     accessKeyId: process.env.S3_ACCESS_KEY_ID,
     secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
     endpoint: this.s3ProviderEndpoint,
@@ -209,5 +209,5 @@ export class FilesService {
       fileExtension: file.extension,
     });
     return `${this.s3ProviderEndpoint.href}${this.bucketName}/${key}`;
-  } */
+  }
 }
