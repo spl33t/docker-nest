@@ -6,7 +6,8 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 //import { GetAllFilesDto } from './dto/get-all-files.dto';
 //import { DeleteOneFileByIdDto } from './dto/delete-one-file-by-id.dto';
 //import { fileTypesConfig, getFileType } from './file-types';
-//import { CreateFileDto, } from './dto/create-files.dto';
+import { BadRequestException } from '@nestjs/common';
+import { CreateFileDto, } from './dto/create-files.dto';
 import { PrismaService } from '../database/prisma.service';
 
 @Injectable()
