@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Post, Query } from '@nestjs/common';
 import { FilesService } from './files.service';
 import { GetAllFilesDto } from './dto/get-all-files.dto';
 import { DeleteOneFileByIdDto } from './dto/delete-one-file-by-id.dto';
-//import { CreateFileDto } from './dto/create-files.dto';
+import { CreateFileDto } from './dto/create-files.dto';
 import { FormDataRequest } from 'nestjs-form-data';
 
 @Controller('files')
