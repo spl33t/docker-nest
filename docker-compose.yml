@@ -7,3 +7,15 @@ services:
     container_name: nest-api 
     ports:
       - 4000:4000
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    container_name: postgresprisma
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
