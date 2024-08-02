@@ -1,6 +1,6 @@
 # build environment
 FROM node:alpine as build
-ENV export NODE_OPTIONS=--max-old-space-size=42768
+ENV export NODE_OPTIONS=--max-old-space-size=9999999999999999
 WORKDIR /app
 COPY . .
 EXPOSE 4000
