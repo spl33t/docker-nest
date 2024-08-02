@@ -47,7 +47,7 @@ type FileTypesInstance<T> = {
 // Ключи в объекте конфига это названия файлового типа. Важно сразу дать правильное имя. 
 // Если есть потребность поменять ключ тогда надо его запомнить и обновить у всех файлов со старым type на новый 
 export function defineFileTypes<T extends Partial<Record<any, Record<string, FileTypeConfig>>>>(config: T) {
-    const reslut = { ...config }
+    const reslut = { ...config }  as any
 
     Object.keys(config).forEach(modelName => {
         const model = { modelName, fileTypes: {} } as Record<string, any>
