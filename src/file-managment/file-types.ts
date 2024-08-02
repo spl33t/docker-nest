@@ -1,5 +1,5 @@
 import { Logger } from "@nestjs/common"
-import { Prisma } from "@prisma/client"
+//import { Prisma } from "@prisma/client"
 
 const pictureExts = ["jpg", "png", "jpeg"]
 export const fileTypesConfig = defineFileTypes({
@@ -46,7 +46,7 @@ type FileTypesInstance<T> = {
 
 // Ключи в объекте конфига это названия файлового типа. Важно сразу дать правильное имя. 
 // Если есть потребность поменять ключ тогда надо его запомнить и обновить у всех файлов со старым type на новый 
-export function defineFileTypes<T extends Partial<Record<keyof typeof Prisma.ModelName, Record<string, FileTypeConfig>>>>(config: T) {
+export function defineFileTypes<T extends Partial<Record<any, Record<string, FileTypeConfig>>>>(config: T) {
     const reslut = { ...config }
 
     Object.keys(config).forEach(modelName => {
