@@ -5,7 +5,6 @@ import { File as FilePrisma, Prisma } from '@prisma/client';
 import { GetOneFileByIdDto } from './dto/get-one-file-by-id.dto';
 import { GetAllFilesDto } from './dto/get-all-files.dto';
 import { DeleteOneFileByIdDto } from './dto/delete-one-file-by-id.dto';
-import { fileTypesConfig, getFileType } from './file-types';
 import { BadRequestException } from '@nestjs/common/exceptions';
 import { CreateFileDto, } from './dto/create-files.dto';
 import { PrismaService } from '../database/prisma.service';
@@ -57,7 +56,7 @@ export class FilesService {
       const fileId = uuid.v4();
       const originalName = decodeURI(Buffer.from(file.name, 'utf-8').toString('utf8'));
       const fileExtension = file.name.split(".").pop()
-      const fileType = getFileType(type)
+      const fileType = {} as any
 
       if (!originalName || !fileExtension) {
         throw new BadRequestException('originalName or fileExtension invalid');
